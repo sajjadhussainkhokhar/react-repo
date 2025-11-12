@@ -5,6 +5,7 @@ import TaskForm from "./components/tasks/TaskForm";
 import TaskList from "./components/tasks/TaskList";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import Signup from "./components/auth/SignUp";
+import ProjectForm from "./components/tasks/ProjectForm";
 
 export default function App() {
   return (
@@ -17,6 +18,11 @@ export default function App() {
             <TaskForm />
           </PrivateRoute>
           } />
+        <Route path="/project-create" element={
+          <PrivateRoute>
+            <ProjectForm />
+          </PrivateRoute>
+          } />  
         <Route path="/tasklist" element={
           <PrivateRoute>  
             <TaskList />

@@ -17,24 +17,24 @@ export async function getTasks() {
   return res.json();
 }
 
-export async function createTask(book) {
+export async function createTask(task) {
   console.log("Creating task with data:", access_token);
   const res = await fetch(API_URL + "/create/", {
     method: "POST",
     headers: getAuthHeaders(),
-    body: JSON.stringify(book),
+    body: JSON.stringify(task),
   });
   if (!res.ok) throw new Error("Failed to create book");
   return res.json();
 }
 
-export async function updateTask(id, book) {
+export async function updateTask(id, task) {
   const res = await fetch(`${API_URL}/${id}/`, {
     method: "PUT",
     headers: getAuthHeaders(),
-    body: JSON.stringify(book),
+    body: JSON.stringify(task),
   });
-  if (!res.ok) throw new Error("Failed to update book");
+  if (!res.ok) throw new Error("Failed to update task");
   return res.json();
 }
 
@@ -44,4 +44,24 @@ export async function deleteTask(id) {
     headers: getAuthHeaders(), 
   });
   if (!res.ok) throw new Error("Failed to delete task");
+}
+
+export async function createProject(project) {
+  console.log("Creating task with data:", access_token);
+  const res = await fetch("http://127.0.0.1:8000/api/project/create/", {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(project),
+  });
+  if (!res.ok) throw new Error("Failed to create project");
+  return res.json();
+}
+
+export async function getProjects() {
+  const res = await fetch("http://127.0.0.1:8000/api/project/",{
+    headers: getAuthHeaders(),
+  });
+  console.log(res)
+  if (!res.ok) throw new Error("Failed to fetch projects");
+  return res.json();
 }

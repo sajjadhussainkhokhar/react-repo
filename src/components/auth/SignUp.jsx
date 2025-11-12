@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
-import { handleRegister } from "../../apis/auth/register";
+import { handleRegister } from "../../apis/auth/auth";
 
 export default function Signup({ onSignup }) {
   const [firstName, setFirstName] = useState("");

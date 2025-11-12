@@ -66,6 +66,11 @@ export default function TaskList({ onEdit, onCreate, onLogout }) {
     navigate("/tasklist-create");
   };
 
+  const handleProjectCreateClick = () => {
+    if (onCreate) onCreate();
+    navigate("/project-create");
+  }
+
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
@@ -102,7 +107,11 @@ export default function TaskList({ onEdit, onCreate, onLogout }) {
           <h3 className="m-0">Tasks</h3>
 
           <MDBBtn size="sm" color="success" onClick={handleCreateClick}>
-            <MDBIcon fas icon="plus" className="me-2" />Create
+            <MDBIcon fas icon="plus" className="me-2" />Create Task
+          </MDBBtn>
+
+          <MDBBtn size="sm" color="success" onClick={handleProjectCreateClick}>
+            <MDBIcon fas icon="plus" className="me-2" />Create Project
           </MDBBtn>
 
           <MDBBtn size="sm" color="secondary" onClick={fetchTasks} disabled={loading}>
