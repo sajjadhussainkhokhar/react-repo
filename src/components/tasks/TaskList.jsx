@@ -192,7 +192,7 @@ export default function TaskList({ onEdit, onCreate, onLogout }) {
 
                     <div className="d-flex justify-content-between align-items-center mt-3">
                       <small className="text-muted text-capitalize">
-                        {task.status} • {task.due_date ?? "-"}
+                        {task.status} • {task.due_date ?? "-"} <b>{task.project?.name}</b>
                       </small>
                       <div>
                         <MDBBtn size="sm" color="primary" onClick={() => onEdit?.(task)} style={{ marginRight: 8 }}>
