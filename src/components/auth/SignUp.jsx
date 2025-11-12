@@ -121,7 +121,7 @@ export default function Signup({ onSignup }) {
                 {loading ? "Signing up..." : "Sign Up"}
               </MDBBtn>
 
-              <MDBBtn type="button" color="link" onClick={() => navigate("/login")}>
+              <MDBBtn type="button" color="link" onClick={() => navigate("/")}>
                 Already have an account?
               </MDBBtn>
             </div>
